@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'predict_diabetes' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="text" class="form-control" id="age", name="age" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="gender-male">
+            <input type="radio" class="form-control" id="gender-male", name="gender" value="male">Male
+          </label>
+          <br>
+          <label for="gender-female">
+            <input type="radio" class="form-control" id="gender-female", name="gender" value="female">Female
+          </label>
+        </div>
+        <div class="form-group">
+            <label for="bmi">BMI</label>
+            <input type="text" class="form-control" id="bmi", name="bmi" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="bp">BP</label>
+            <input type="text" class="form-control" id="bp", name="bp" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s1">S1</label>
+            <input type="text" class="form-control" id="s1", name="s1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s2">S2</label>
+            <input type="text" class="form-control" id="s2", name="s2" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s3">S3</label>
+            <input type="text" class="form-control" id="s3", name="s3" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s4">S4</label>
+            <input type="text" class="form-control" id="s4", name="s4" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s5">S5</label>
+            <input type="text" class="form-control" id="s5", name="s5" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="s6">S6</label>
+            <input type="text" class="form-control" id="s6", name="s6" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+      <h1>Diabetes Level Prediction</h1>
+    {% if prediction is not None %}
+        <h2>Prediction Result: {{ prediction }}</h2>
+    {% else %}
+      <h2>Predict After filling Above Form</h2>
+    {% endif %}
+      
+</body>
+</html>
